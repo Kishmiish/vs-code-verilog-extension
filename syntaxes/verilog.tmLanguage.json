@@ -7,13 +7,30 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#module"
+		},
+		{
+			"include": "#data_type"
+		},
+		{
+			"include": "#constant"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.verilog",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(if|else|while|for|initial|always|default|case)\\b"
+			},
+			{
+				"name": "keyword.other.verilog",
+				"match": "\\b(assign|always_comb|always_ff)\\b"
+			},
+			{
+				"name": "entity.name.function.verilog",
+				"match": "\\b(module|endmodule)\\b"
 			}]
 		},
 		"strings": {
@@ -26,6 +43,17 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"data_type": {
+			"patterns": [{
+				"name": "storage.type",
+				"match": "\\b(integer|time|real|reg|wire|input|output)\\b"
+			}
+			]
+		},
+		"constant": {
+			"name": "constant.numeric",
+			"match": "(-?(\\d+)?('((sd)|d|b|h|o))?\\d+)|(-?(\\d+)?'h(\\d|\\w)+)"
 		}
 	},
 	"scopeName": "source.v"
